@@ -16,7 +16,7 @@ WebUI 打开方式：与 esp8266 连接到同一个 wifi，浏览器访问 http:
 下面这行代码决定使用的空调控制协议，要使用其他型号，将`IRHaierACYRW02`更换成其他类即可。一种品牌可能有多种协议，如果控制失败，可以换一种协议再试试。
 
 ```cpp
-IRHaierACYRW02 airCond(IR_PIN)
+IRHaierACYRW02 airCond(IR_PIN) // 这里是海尔中央空调，普通海尔挂机请换成IRHaierAC
 ```
 
 [IRremoteESP8266](https://github.com/crankyoldgit/IRremoteESP8266) 库中已经内置多种空调控制协议，比如格力、美的等，详情参见[这里](https://github.com/crankyoldgit/IRremoteESP8266/blob/master/SupportedProtocols.md)
