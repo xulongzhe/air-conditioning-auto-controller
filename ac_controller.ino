@@ -25,7 +25,7 @@ const int end_minute = 40;
 const int maxTemprature = 15;
 
 // 空调温度
-const int acTemp = 26;
+const int acTemp =26;
 
 // WIFI账号密码
 const char *ssid = "lot-ap";
@@ -46,6 +46,7 @@ bool isAcOn = false;
 // ntp
 WiFiUDP ntpUDP;
 NTPClient ntp(ntpUDP, utcOffsetInSeconds);
+
 
 // 温度检测
 OneWire oneWire(TEMP_PIN);
@@ -85,12 +86,6 @@ void setup(void)
   // 启动NTP客户端
   ntp.begin();
 
-  // 启动mDNS
-  if (MDNS.begin("esp8266"))
-  {
-    Serial.println("MDNS responder started");
-  }
-
   // 注册web请求处理函数
   registerHttpHandlers();
 
@@ -107,7 +102,6 @@ void setup(void)
 void loop(void)
 {
   server.handleClient();
-  MDNS.update();
   scheduleBySeconds(10);
 }
 
@@ -121,8 +115,8 @@ void acOn(bool force = false)
   Serial.println("AC on, time: " + ntp.getFormattedTime());
   airCond.setFan(kHaierAcFanAuto);
   airCond.setMode(kHaierAcHeat);
-  airCond.setTemp(acTemp)
-      airCond.on();
+  airCond.setTemp(acTemp);
+  airCond.on();
   airCond.send();
   isAcOn = true;
   digitalWrite(LED_BUILTIN, HIGH);
