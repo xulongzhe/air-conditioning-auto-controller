@@ -4,9 +4,10 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <WiFiUdp.h>
+#include <ESP8266mDNS.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
-#include <ir_Haier.h> // 此处是海尔空调，可以根据自己空调型号自行更换
+#include <ir_Haier.h> // 这里是海尔，可以根据自己空调品牌自行更换
 
 #define IR_PIN 5   // 红外发光二极管正极引脚 (D1)
 #define TEMP_PIN 4 // 温度传感器引脚 (D2)
