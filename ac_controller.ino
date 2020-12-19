@@ -4,7 +4,6 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <WiFiUdp.h>
-#include <ESP8266mDNS.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
 #include <ir_Haier.h> // 此处是海尔空调，可以根据自己空调型号自行更换
@@ -152,7 +151,7 @@ void registerHttpHandlers()
     <html>
       <head>
         <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-        <title>Hello ESP8266</title>
+        <title>ESP8266空调控制</title>
       </head> 
       <body>
         <ul>
