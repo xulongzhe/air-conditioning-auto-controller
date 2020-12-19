@@ -32,6 +32,9 @@ const int acTemp = 26;
 const char *ssid = "lot-ap";
 const char *password = "xulongzhe";
 
+// ESP8266主机名，直接在浏览器输入 http://my-ac 即可访问webui
+const char *hostName = "my-ac"
+
 // 时区偏移(东八区)
 const long utcOffsetInSeconds = 8 * 3600;
 
@@ -89,8 +92,8 @@ void setup(void)
   // 注册web请求处理函数
   registerHttpHandlers();
 
-  // 启动mDNS, 直接在浏览器输入http://ac-ctrl即可访问webui
-  MDNS.begin("ac-ctrl"); 
+  // 启动mDNS 
+  MDNS.begin(hostName); 
 
   // 启动web服务器
   server.begin();
