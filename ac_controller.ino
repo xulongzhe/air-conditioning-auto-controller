@@ -15,8 +15,8 @@
 /********************* 配置项 START ************************/
 
 // 空调启动时间
-const int start_hour = 7;
-const int start_minute = 10;
+const int start_hour = 6;
+const int start_minute = 40;
 
 // 空调关闭时间
 const int end_hour = 7;
@@ -33,7 +33,7 @@ const char *ssid = "lot-ap";
 const char *password = "xulongzhe";
 
 // ESP8266主机名，直接在浏览器输入 http://my-ac 即可访问webui
-const char *hostName = "my-ac"
+const char *hostName = "my-ac";
 
 // 时区偏移(东八区)
 const long utcOffsetInSeconds = 8 * 3600;
@@ -120,7 +120,7 @@ void acOn(bool force = false)
   }
   digitalWrite(LED_BUILTIN, LOW);
   Serial.println("AC on, time: " + ntp.getFormattedTime());
-  airCond.setFan(kHaierAcFanAuto);
+  airCond.setFan(kHaierAcFanMed);
   airCond.setMode(kHaierAcHeat);
   airCond.setTemp(acTemp);
   airCond.on();
