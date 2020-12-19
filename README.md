@@ -30,7 +30,7 @@ IRHaierACYRW02 airCond(IR_PIN)
 - 上拉电阻 R1(4.7KΩ)，用于上拉温度传感器输出 PIN
 - 分压电阻 R2(阻值根据红外二极管额定电压选择), 用于给红外二极管分压
 
-## Arduino 库
+## 需要的 Arduino 库
 
 - DallasTemperature - 温度监测
 - NTPClient - 网络时间获取
@@ -40,11 +40,11 @@ IRHaierACYRW02 airCond(IR_PIN)
 
 **红外二极管**
 
-ESP8266 D1  --- 分压电阻 R2 --- 红外二极管 正极
+ESP8266 D1 --- 分压电阻 R2 --- 红外二极管 正极
 ESP8266 GND --- 红外二极管 负极
 
 **温度传感器**
 
 ESP8266 3.3V --- 上拉电阻 R1 --- DS18B20 DQ --- ESP8266 D2
 ESP8266 3.3V --- DS18B20 VDD
-ESP8266 GND  --- DS18B20 GND
+ESP8266 GND --- DS18B20 GND
