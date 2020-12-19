@@ -11,13 +11,13 @@
 #include <ir_Haier.h> // 此处是海尔空调，可以根据自己空调型号自行更换
 ```
 
-以及这行代码：
+下面这行代码决定使用的空调控制协议，要使用其他型号，将`IRHaierACYRW02`更换成其他类即可。一种品牌可能有多种协议，如果控制失败，可以换一种协议再试试。
 
 ```cpp
 IRHaierACYRW02 airCond(IR_PIN)
 ```
 
-将`IRHaierACYRW02`更换成其他类即可，[IRremoteESP8266](https://github.com/crankyoldgit/IRremoteESP8266) 库中已经内置多种空调控制协议，比如格力、美的等，详情参见[这里](https://github.com/crankyoldgit/IRremoteESP8266/blob/master/SupportedProtocols.md)
+[IRremoteESP8266](https://github.com/crankyoldgit/IRremoteESP8266) 库中已经内置多种空调控制协议，比如格力、美的等，详情参见[这里](https://github.com/crankyoldgit/IRremoteESP8266/blob/master/SupportedProtocols.md)
 
 ## 材料
 
