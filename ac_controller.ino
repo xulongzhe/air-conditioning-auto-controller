@@ -6,6 +6,7 @@
 #include <WiFiUdp.h>
 #include <ESP8266mDNS.h>
 #include <ESP8266WebServer.h>
+#include <ESP8266mDNS.h>
 #include <ir_Haier.h> // 此处是海尔空调，可以根据自己空调型号自行更换
 
 #define IR_PIN 5   // 红外发光二极管正极引脚 (D1)
@@ -25,7 +26,7 @@ const int end_minute = 40;
 const int maxTemprature = 15;
 
 // 空调温度
-const int acTemp =26;
+const int acTemp = 26;
 
 // WIFI账号密码
 const char *ssid = "lot-ap";
@@ -46,7 +47,6 @@ bool isAcOn = false;
 // ntp
 WiFiUDP ntpUDP;
 NTPClient ntp(ntpUDP, utcOffsetInSeconds);
-
 
 // 温度检测
 OneWire oneWire(TEMP_PIN);
@@ -89,6 +89,9 @@ void setup(void)
   // 注册web请求处理函数
   registerHttpHandlers();
 
+  // 启动mDNS, 直接在浏览器输入http://ac-ctrl即可访问webui
+  MDNS.begin("ac-ctrl"); 
+
   // 启动web服务器
   server.begin();
 
@@ -102,6 +105,7 @@ void setup(void)
 void loop(void)
 {
   server.handleClient();
+  MDNS.update();
   scheduleBySeconds(10);
 }
 
