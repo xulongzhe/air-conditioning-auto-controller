@@ -15,12 +15,12 @@
 /********************* 配置项 START ************************/
 
 // 空调启动时间
-const int start_hour = 6;
-const int start_minute = 40;
+const int start_hour = 7;
+const int start_minute = 00;
 
 // 空调关闭时间
 const int end_hour = 7;
-const int end_minute = 40;
+const int end_minute = 35;
 
 // 温度阈值，低于这个温度才会启动空调
 const int maxTemprature = 15;
@@ -120,8 +120,8 @@ void acOn(bool force = false)
   }
   digitalWrite(LED_BUILTIN, LOW);
   Serial.println("AC on, time: " + ntp.getFormattedTime());
-  airCond.setFan(kHaierAcFanMed);
-  airCond.setMode(kHaierAcHeat);
+  airCond.setFan(kHaierAcYrw02FanLow);
+  airCond.setMode(kHaierAcYrw02Heat);
   airCond.setTemp(acTemp);
   airCond.on();
   airCond.send();
