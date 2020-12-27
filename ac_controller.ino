@@ -16,7 +16,7 @@
 
 // 空调启动时间
 const int start_hour = 7;
-const int start_minute = 00;
+const int start_minute = 0;
 
 // 空调关闭时间
 const int end_hour = 7;
