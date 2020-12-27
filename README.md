@@ -43,10 +43,13 @@ IRHaierACYRW02 airCond(IR_PIN) // 这里是海尔中央空调，普通海尔挂�
 **红外二极管**
 
 ESP8266 D1 --- 分压电阻 R2 --- 红外二极管 正极
+
 ESP8266 GND --- 红外二极管 负极
 
 **温度传感器**
 
 ESP8266 3.3V --- 上拉电阻 R1 --- DS18B20 DQ --- ESP8266 D2
+
 ESP8266 3.3V --- DS18B20 VDD
+
 ESP8266 GND --- DS18B20 GND
