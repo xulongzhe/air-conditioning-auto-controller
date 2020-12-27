@@ -49,7 +49,7 @@ bool isAcOn = false;
 
 // ntp
 WiFiUDP ntpUDP;
-NTPClient ntp(ntpUDP, utcOffsetInSeconds);
+NTPClient ntp(ntpUDP, "cn.ntp.org.cn", utcOffsetInSeconds);
 
 // 温度检测
 OneWire oneWire(TEMP_PIN);
@@ -88,21 +88,25 @@ void setup(void)
 
   // 启动NTP客户端
   ntp.begin();
+  Serial.println("ntp started");
 
   // 注册web请求处理函数
   registerHttpHandlers();
 
-  // 启动mDNS 
-  MDNS.begin(hostName); 
+  // 启动mDNS
+  MDNS.begin(hostName);
 
   // 启动web服务器
   server.begin();
+  Serial.println("webserver started");
 
   // 启动空调控制器
   airCond.begin();
+  Serial.println("ac controller started");
 
   // 启动温度传感器
   sensors.begin();
+  Serial.println("temperatrue sensor started");
 }
 
 void loop(void)
@@ -227,6 +231,7 @@ void ntpUpdate()
 {
   while (!ntp.update())
   {
+    Serial.println("ntp update");
     ntp.forceUpdate();
   }
 }
